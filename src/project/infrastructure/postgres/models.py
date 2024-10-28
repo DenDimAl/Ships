@@ -11,4 +11,4 @@ class Ship(Base):
     Speed: Mapped[int] = mapped_column(nullable=False)
     Spendings: Mapped[int] = mapped_column(nullable=False)
     FuelSpendings: Mapped[int] = mapped_column(nullable=False)
-#То же самое?
+

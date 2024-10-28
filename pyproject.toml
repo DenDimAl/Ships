@@ -1,12 +1,20 @@
 [tool.poetry]
-name = "pythonproject"
-version = "0.1.0"
+name = "project"
+version = "0.2.0"
 description = ""
-authors = ["Denisov Dmitriy <d.denis221004@gmail.com>"]
+authors = ["CuasarN1 <55405975+CuasarN1@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
+sqlalchemy = "^2.0.35"
+fastapi = "^0.115.2"
+pydantic-settings = "^2.5.2"
+uvicorn = "^0.31.1"
+asyncpg = "^0.29.0"
+greenlet = "^3.1.1"
+alembic = "^1.13.3"
+tenacity = "^9.0.0"
 
 
 [build-system]
