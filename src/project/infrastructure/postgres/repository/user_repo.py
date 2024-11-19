@@ -3,10 +3,10 @@ from typing import Type
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 
-from src.project.schemas.ships import ShipSchema
-from src.project.infrastructure.postgres.models import Ship
+from project.schemas.ships import ShipSchema
+from project.infrastructure.postgres.models import Ship
 
-from src.project.core.config import settings
+from project.core.config import settings
 
 
 class UserRepository:
