@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Column, ForeignKey
 
-from src.project.infrastructure.postgres.database import Base
+from project.infrastructure.postgres.database import Base
 
 class Ship(Base):
     __tablename__ = "ships"
