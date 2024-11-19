@@ -1,12 +1,14 @@
 from typing import Type
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import text
+from sqlalchemy import text, select, insert, update, delete
+from sqlalchemy.exc import IntegrityError
 
-from project.schemas.ships import ShipSchema
+from project.schemas.ships import ShipSchema, ShipCreateUpdateSchema
 from project.infrastructure.postgres.models import Ship
 
 from project.core.config import settings
+from project.core.exceptions import ShipNotFound, ShipAlreadyExists
 
 
 class UserRepository:
@@ -22,12 +24,12 @@ class UserRepository:
 
         return True if result else False
 
-    async def get_all_users(
+    async def get_all_ships(
         self,
         session: AsyncSession,
     ) -> list[ShipSchema]:
-        query = f"select * from {settings.POSTGRES_SCHEMA}.users;"
+        query = select(self._collection)
 
-        users = await session.execute(text(query))
+        ships = await session.execute(text(query))
 
-        return [ShipSchema.model_validate(obj=user) for user in users.mappings().all()]
+        return [ShipSchema.model_validate(obj=ship) for ship in ships.mappings().all()]

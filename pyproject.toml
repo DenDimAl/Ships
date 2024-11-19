@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "project"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = ["CuasarN1 <55405975+CuasarN1@users.noreply.github.com>"]
 readme = "README.md"

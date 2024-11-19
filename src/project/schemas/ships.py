@@ -2,10 +2,7 @@ import datetime
 
 from pydantic import BaseModel, Field, ConfigDict
 
-class ShipSchema(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    NumberOfShip: int
+class ShipCreateUpdateSchema(BaseModel):
     Name: str | None = Field(default=None)
     ShipType: str
     MaxVolume: int
@@ -13,6 +10,12 @@ class ShipSchema(BaseModel):
     Speed: int
     Spendings: int
     FuelSpendings: int
+
+class ShipSchema(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    NumberOfShip: int
+
 """
 class CargoSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
