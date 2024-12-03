@@ -1,4 +1,6 @@
-from project.infrastructure.postgres.repository.user_repo import UserRepository
+from project.infrastructure.postgres.repository.ship_repo import ShipRepository
 from project.infrastructure.postgres.database import PostgresDatabase
-user_repo = UserRepository()
+from project.infrastructure.postgres.repository.captain_repo import CaptainRepository
+ship_repo = ShipRepository()
+cap_repo = CaptainRepository()
 database = PostgresDatabase()

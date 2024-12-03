@@ -18,6 +18,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - app_db_network
 
   app:
     depends_on:
@@ -43,7 +45,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 192.16.0.0/16
+        - subnet: 176.16.0.0/16
 
 
 
