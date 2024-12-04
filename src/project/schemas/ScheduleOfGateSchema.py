@@ -11,4 +11,4 @@ class ScheduleOfGateSchema(BaseModel):
     AwaitedDateOfStart: datetime.date
     AwaitedDateOfEnd: datetime.date
     ActualDateOfStart: datetime.date
-    ActualDateOfEnd: datetime.date
+    actual_date_of_end: datetime.date

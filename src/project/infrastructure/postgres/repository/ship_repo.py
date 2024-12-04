@@ -35,7 +35,7 @@ class ShipRepository:
         return [ShipSchema.model_validate(obj=ship) for ship in ships.all()]
 
     async def get_ship_by_id(self, session: AsyncSession,ship_id: int) -> ShipSchema:
-        query = select(self._collection).where(self._collection.NumberOfShip == ship_id)
+        query = select(self._collection).where(self._collection.id == ship_id)
         ship = await session.scalar(query)
         if not ship:
             raise ShipNotFound(ship_id)
@@ -54,7 +54,7 @@ class ShipRepository:
     ) -> ShipSchema:
         query = (
             update(self._collection)
-            .where(self._collection.NumberOfShip == ship_id)
+            .where(self._collection.id == ship_id)
             .values(ship.model_dump())
             .returning(self._collection)
         )
@@ -71,7 +71,7 @@ class ShipRepository:
             session: AsyncSession,
             ship_id: int
     ) -> None:
-        query = delete(self._collection).where(self._collection.NumberOfShip == ship_id)
+        query = delete(self._collection).where(self._collection.id == ship_id)
 
         result = await session.execute(query)
 

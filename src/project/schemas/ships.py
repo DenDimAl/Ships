@@ -5,14 +5,14 @@ from pydantic import BaseModel, Field, ConfigDict
 class ShipSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    NumberOfShip: int
-    Name: str | None = Field(default=None)
-    ShipType: str
-    Speed: int
-    Spendings: int
-    FuelSpendings: int
-    MaxVolume: int
-    MaxWeight: int
+    id: int
+    name: str | None = Field(default=None)
+    ship_type: str
+    speed: int
+    max_volume: int
+    max_weight: int
+    spendings: int
+    fuel_spendings: int
 
 """
 class CargoSchema(BaseModel):

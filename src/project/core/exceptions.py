@@ -1,18 +1,18 @@
 from typing import Final
 
 class ShipNotFound(BaseException):
-    _ERROR_MESSAGE_TEMPLATE: Final[str] = "Корабль с номером {NumberOfShip} не найден"
+    _ERROR_MESSAGE_TEMPLATE: Final[str] = "Корабль с номером {id} не найден"
     message: str
 
     def __init__(self, _NumberOfShip:int) -> None:
-        self.message = self._ERROR_MESSAGE_TEMPLATE.format(NumberOfShip = _NumberOfShip)
+        self.message = self._ERROR_MESSAGE_TEMPLATE.format(id = _NumberOfShip)
         super().__init__(self.message)
 
 class ShipAlreadyExists(BaseException):
-    _ERROR_MESSAGE_TEMPLATE: Final[str] = "Корабль с номером {NumberOfShip} уже существует"
+    _ERROR_MESSAGE_TEMPLATE: Final[str] = "Корабль с номером {id} уже существует"
 
     def __init__(self, _NumberOfShip:int) -> None:
-        self.message = self._ERROR_MESSAGE_TEMPLATE.format(NumberOfShip = _NumberOfShip)
+        self.message = self._ERROR_MESSAGE_TEMPLATE.format(id = _NumberOfShip)
         super().__init__(self.message)
 
 class CaptainNotFound(BaseException):
