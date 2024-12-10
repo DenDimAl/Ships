@@ -3,7 +3,9 @@ import datetime
 from pydantic import BaseModel, Field, ConfigDict
 
 class RouteSchema(BaseModel):
-    NumberOfRoute: int
-    NumberOfStartingPoint: int
-    NumberOfEndingPoint: int
-    RouteLengrh: int
+    model_config = ConfigDict(from_attributes=True)
+
+    number_of_route: int
+    number_of_starting_port: int
+    number_of_ending_Port: int
+    route_length: int

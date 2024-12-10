@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 class ClientSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
-    FaceNumber: int
-    NameOfTheFirm: str
-    AccompalienceDate: datetime.date | None = Field(default=None)
-    StateOrPrivate: bool
+    face_number: int
+    name_of_the_firm: str
+    accompalience_date: datetime.date | None = Field(default=None)
+    state_or_private: bool

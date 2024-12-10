@@ -47,7 +47,7 @@ class ShipRepository:
             created_ship = await session.scalar(query)
             await session.flush()
         except IntegrityError:
-            raise ShipAlreadyExists(ship.NumberOfShip)
+            raise ShipAlreadyExists(ship.id)
         return ShipSchema.model_validate(obj=created_ship)
 
     async def update_ship(self, session: AsyncSession, ship_id: int, ship: ShipSchema

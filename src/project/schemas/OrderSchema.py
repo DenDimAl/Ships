@@ -3,14 +3,16 @@ import datetime
 from pydantic import BaseModel, Field, ConfigDict
 
 class OrderSchema(BaseModel):
-    NumberOfOrder: int
-    NumberOfCargo: int
-    NumberOfClient: int
-    NumberOfSupplier: int
-    DateOfOrdering: datetime.date
-    AwaitingDateOfReceiving: datetime.date
-    ActualDateOfReceiving: datetime.date | None = Field(default=None)
-    AwaitingDateOfDeliviring: datetime.date | None = Field(default=None)
-    ActualDateOfDeliviring: datetime.date | None = Field(default=None)
-    NumberOfCruise: int
-    CostOfDelivery: int
+    model_config = ConfigDict(from_attributes=True)
+
+    number_of_order: int
+    number_of_cargo: int
+    number_of_client: int
+    number_of_supplier: int
+    date_of_ordering: datetime.date
+    awaiting_date_of_receiving: datetime.date
+    actual_date_of_receiving: datetime.date | None = Field(default=None)
+    awaiting_date_of_deliviring: datetime.date | None = Field(default=None)
+    actual_date_of_deliviring: datetime.date | None = Field(default=None)
+    number_of_cruise: int
+    cost_of_delivery: int

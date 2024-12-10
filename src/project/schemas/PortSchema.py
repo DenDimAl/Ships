@@ -3,6 +3,8 @@ import datetime
 from pydantic import BaseModel, Field, ConfigDict
 
 class PortSchema(BaseModel):
-    NumberOfPort: int
-    Town: str
-    MonthSpendings: int
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    town: str
+    month_spendings: int

@@ -35,7 +35,7 @@ class CaptainRepository:
         return [CaptainSchema.model_validate(obj=cap) for cap in caps.all()]
 
     async def get_captain_by_pn(self, session: AsyncSession,cap_pn: str) -> CaptainSchema:
-        query = select(self._collection).where(self._collection.PersonnelNumber == cap_pn)
+        query = select(self._collection).where(self._collection.personnel_number == cap_pn)
         cap = await session.scalar(query)
         if not cap:
             raise CaptainNotFound(cap_pn)
@@ -47,14 +47,14 @@ class CaptainRepository:
             created_cap = await session.scalar(query)
             await session.flush()
         except IntegrityError:
-            raise CaptainAlreadyExists(captain.PersonnelNumber)
+            raise CaptainAlreadyExists(captain.personnel_number)
         return CaptainSchema.model_validate(obj=created_cap)
 
     async def update_captain(self, session: AsyncSession, cap_pn: str, cap: CaptainSchema
     ) -> CaptainSchema:
         query = (
             update(self._collection)
-            .where(self._collection.PersonnelNumber == cap_pn)
+            .where(self._collection.personnel_number == cap_pn)
             .values(cap.model_dump())
             .returning(self._collection)
         )
@@ -66,12 +66,12 @@ class CaptainRepository:
 
         return CaptainSchema.model_validate(obj=updated_cap)
 
-    async def delete_cap(
+    async def delete_captain(
             self,
             session: AsyncSession,
             cap_pn: str
     ) -> None:
-        query = delete(self._collection).where(self._collection.PersonnelNumber == cap_pn)
+        query = delete(self._collection).where(self._collection.personnel_number == cap_pn)
 
         result = await session.execute(query)
 

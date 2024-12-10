@@ -3,7 +3,9 @@ import datetime
 from pydantic import BaseModel, Field, ConfigDict
 
 class CraneSchema(BaseModel):
-    NumberOfCrane: int
-    PortNumber: int
-    Experience: int
-    MonthSpendings: int
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    port_number: int
+    experience: int
+    month_spendings: int
