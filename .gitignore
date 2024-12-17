@@ -9,3 +9,4 @@ src/project/infrastructure/__pycache__/
 src/project/infrastructure/postgres/__pycache__/
 src/project/infrastructure/postgres/repository/__pycache__/
 src/project/schemas/__pycache__/
+src/project/resource/__pycache__/

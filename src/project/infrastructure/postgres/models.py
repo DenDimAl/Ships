@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import Column, ForeignKey
+from sqlalchemy import Column, ForeignKey, false
 
 from project.infrastructure.postgres.database import Base
 
@@ -138,3 +138,13 @@ class ScheduleOfGate(Base):
     actual_date_of_start: Mapped[datetime] = mapped_column(nullable=False)
     actual_date_of_end: Mapped[datetime] = mapped_column(nullable=False)
     up_or_down: Mapped[bool] = mapped_column(nullable=False)
+
+class Users(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key = True)
+    first_name: Mapped[str] = mapped_column(nullable = False)
+    second_name: Mapped[str] = mapped_column(nullable = False)
+    email: Mapped[str] = mapped_column(nullable = False)
+    password: Mapped[str] = mapped_column(nullable = False)
+    is_admin: Mapped[bool] = mapped_column(default = False, server_default=false())

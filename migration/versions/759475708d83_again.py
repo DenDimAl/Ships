@@ -9,6 +9,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+from project.core.config import settings
 
 
 # revision identifiers, used by Alembic.
